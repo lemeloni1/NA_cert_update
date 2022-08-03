@@ -14,12 +14,14 @@ update SSL-certificates
 
 2. Переходим в каталог и тянем скрипт из git-репозитория 
     	
-	cd /opt/letsencrypt \
-    	git clone https://github.com/lemeloni1/NA_cert_update 
+	cd /opt/letsencrypt 
+    	
+	git clone https://github.com/lemeloni1/NA_cert_update 
 
 3. Перемещаем каталоги и правим доступы
 
-	mv NA_cert_update /opt/letsencrypt/cert \
+	mv NA_cert_update /opt/letsencrypt/cert 
+	
 	chown -R letsencrypt: /opt/letsencrypt
 
 4. Для работы необходимо установить пакет jq
