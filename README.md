@@ -16,7 +16,7 @@ update SSL-certificates
     	
 	cd /opt/letsencrypt 
     	
-	git clone [https://github.com/lemeloni1/NA_cert_update](https://github.com/lemeloni1/NA_cert_update.git) 
+	git clone https://github.com/lemeloni1/NA_cert_update.git 
 
 3. Перемещаем каталоги и правим доступы
 
