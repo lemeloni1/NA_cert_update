@@ -41,19 +41,23 @@ update SSL-certificates
 	Нужно добавить токен id в начало файла bin/upd_crt.sh ,  берем из панели управления https://panel.netangels.ru/account/api/ . в upd_crt.sh вставляем api-key
 
 6. Запускаем первый раз командой 
-    
-    sudo -u letsencrypt bash -x ./bin/upd_crt.sh
+ 
+	sudo -u letsencrypt bash -x ./bin/upd_crt.sh
 
 Смотрим вывод на наличие каких-либо ошибок, проверяем /opt/letsencrypt/cert на сертификаты. Если ничего нет, а должно быть,
-копируем весь вывод с экрана и обращаемся к vitaly, если самостоятельно не смогли разобраться. Если видны ошибки, точно так же, пересылаем их. Также обзываем файл следующей командой
+копируем весь вывод с экрана и обращаемся к vitaly, если самостоятельно не смогли разобраться. Если видны ошибки, точно так же, пересылаем их. 
+
+Также обзываем файл следующей командой
 
 	chmod +x /opt/letsencrypt/bin/upd_crt.sh
 
 7. В crontab добавляем задание
-    0 1 * * * /usr/bin/sudo -u letsencrypt /opt/letsencrypt/bin/upd_crt.sh && nginx -s reload
+
+	0 1 * * * /usr/bin/sudo -u letsencrypt /opt/letsencrypt/bin/upd_crt.sh && nginx -s reload
 
 8. К web-серверу прокидываем симлинк
-    ln -s /opt/letsencrypt/cert /etc/nginx/ssl 
+
+	ln -s /opt/letsencrypt/cert /etc/nginx/ssl 
 
 9. Создаем соответствующие конфиг для web-сервера, например, как в статье https://www.netangels.ru/support/ssl/add-ssl-cvds-panel/
 
